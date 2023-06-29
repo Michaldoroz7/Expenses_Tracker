@@ -1,0 +1,60 @@
+expenses-tracker/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── com/
+│   │   │   │   ├── example/
+│   │   │   │   │   ├── expenses/
+│   │   │   │   │   │   ├── controller/
+│   │   │   │   │   │   │   └── ExpenseController.java
+│   │   │   │   │   │   ├── model/
+│   │   │   │   │   │   │   ├── Expense.java
+│   │   │   │   │   │   │   ├── Category.java
+│   │   │   │   │   │   │   └── Product.java
+│   │   │   │   │   │   ├── repository/
+│   │   │   │   │   │   │   ├── ExpenseRepository.java
+│   │   │   │   │   │   │   └── CategoryRepository.java
+│   │   │   │   │   │   └── service/
+│   │   │   │   │   │       ├── ExpenseService.java
+│   │   │   │   │   │       └── CategoryService.java
+│   │   │   │   │   └── ExpensesTrackerApplication.java
+│   │   ├── resources/
+│   │   │   ├── application.properties
+│   │   │   └── data.sql
+│   ├── test/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── expenses/
+│   │   │               ├── controller/
+│   │   │               │   └── ExpenseControllerTest.java
+│   │   │               ├── repository/
+│   │   │               │   ├── ExpenseRepositoryTest.java
+│   │   │               │   └── CategoryRepositoryTest.java
+│   │   │               └── service/
+│   │   │                   ├── ExpenseServiceTest.java
+│   │   │                   └── CategoryServiceTest.java
+│   └── webapp/
+│       └── app/
+│           ├── components/
+│           │   ├── expense/
+│           │   │   ├── expense-list.component.html
+│           │   │   ├── expense-list.component.ts
+│           │   │   ├── expense-form.component.html
+│           │   │   └── expense-form.component.ts
+│           │   └── category/
+│           │       ├── category-list.component.html
+│           │       ├── category-list.component.ts
+│           │       ├── category-form.component.html
+│           │       └── category-form.component.ts
+│           ├── services/
+│           │   ├── expense.service.ts
+│           │   └── category.service.ts
+│           ├── app.module.ts
+│           └── main.ts
+├── .gitignore
+├── README.md
+├── pom.xml
+├── package.json
+├── angular.json
+└── tsconfig.json
