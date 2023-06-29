@@ -27,7 +27,7 @@ The Expenses Tracker Application utilizes the following dependencies:
 
 ## UML Diagram
 
-![Diagram](F:\Java_Projekty\Expenses_Tracker\v1.png)
+![Diagram](https://github.com/Michaldoroz7/Expenses_Tracker/blob/master/v1.png)
 
 ## Authors
 
