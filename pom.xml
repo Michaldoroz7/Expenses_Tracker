@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.mdoroz</groupId>
 	<artifactId>Expenses_Tracker</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Expenses_Tracker</name>
 	<description>Expenses Tracker app</description>
 	<properties>
@@ -60,7 +60,9 @@
 	</dependencies>
 
 	<build>
+		<finalName>Expenses_Tracker-1.0.0</finalName>
 		<plugins>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -73,6 +75,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
 
