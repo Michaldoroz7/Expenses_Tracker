@@ -32,10 +32,10 @@ public class UserController {
         return user.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User savedUser = userService.saveUser(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
+    @PostMapping("/register")
+    public ResponseEntity<String> registerUser(@RequestBody User user) {
+        userService.registerUser(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully");
     }
 
     @PutMapping("/{id}")
@@ -43,7 +43,7 @@ public class UserController {
         Optional<User> existingUser = userService.getUserById(id);
         if (existingUser.isPresent()) {
             user.setId(id);
-            User updatedUser = userService.saveUser(user);
+            User updatedUser = userService.registerUser(user);
             return ResponseEntity.ok(updatedUser);
         } else {
             return ResponseEntity.notFound().build();
