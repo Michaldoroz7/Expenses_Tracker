@@ -17,11 +17,13 @@ public class RoleController {
         this.roleService = roleService;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public List<Role> getAllRoles() {
         return roleService.getAllRoles();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{roleId}")
     public Role getRoleById(@PathVariable Long roleId) {
         return roleService.getRoleById(roleId);

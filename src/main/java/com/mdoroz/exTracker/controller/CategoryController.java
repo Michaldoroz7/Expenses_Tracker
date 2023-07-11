@@ -17,11 +17,13 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public List<Category> getAllCategories() {
         return categoryService.getAllCategories();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{categoryId}")
     public Category getCategoryById(@PathVariable Long categoryId) {
         return categoryService.getCategoryById(categoryId);

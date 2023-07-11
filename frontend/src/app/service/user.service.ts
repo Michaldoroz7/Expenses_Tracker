@@ -13,7 +13,7 @@ export class UserService {
 
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8090/users/';
+    this.usersUrl = 'http://localhost:8090/users';
     this.userReturn = 'http://localhost:8090/users/';
   }
 

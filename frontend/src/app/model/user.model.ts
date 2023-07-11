@@ -3,7 +3,7 @@ export class User {
     name: String;
     password: String;
     email: String;
-    moneSpend: number;
+    moneySpend: number;
     role_id: number;
     product_id: number;
 }
