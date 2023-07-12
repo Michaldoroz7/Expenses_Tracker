@@ -2,15 +2,17 @@ package com.mdoroz.exTracker.service;
 
 
 import com.mdoroz.exTracker.model.Product;
+import com.mdoroz.exTracker.model.User;
 import com.mdoroz.exTracker.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class ProductService {
+
+    UserService userService;
 
     private final ProductRepository productRepository;
 
@@ -25,6 +27,14 @@ public class ProductService {
 
     public Optional<Product> getProductById(Long id) {
         return productRepository.findById(id);
+    }
+
+
+    public List<Product> getUserProduct(Long userId){
+
+        Optional<User> existingUser = userService.getUserById(userId);
+        List<Long> idList = List.of(existingUser.get().getProduct().getId());
+        return productRepository.findAllById(idList);
     }
 
     public Product createProduct(Product product) {

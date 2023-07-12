@@ -36,6 +36,12 @@ public class ProductController {
         return productOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/users/{id}")
+    public ResponseEntity<List<Product>> getUserProducts(@PathVariable("userId") long userId){
+        return ResponseEntity.status(HttpStatus.OK).body(productService.getUserProduct(userId));
+    }
+
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         Product createdProduct = productService.createProduct(product);
