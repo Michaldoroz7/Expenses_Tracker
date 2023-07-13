@@ -22,13 +22,13 @@ public class Product {
     private double price;
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Date boughtDate;
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    private Long categoryId;
+
+    private Long userId;
 
 
     @Override
     public String toString() {
-        return "Product [id=" + id + ", name=" + name + ", bought date=" + boughtDate + ", price=" + price + ", category id=" + category + "]";
+        return "Product [id=" + id + ", name=" + name + ", bought date=" + boughtDate + ", price=" + price + ", category id=" + categoryId + "]";
     }
 }

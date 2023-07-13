@@ -37,9 +37,9 @@ public class ProductController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/users/{id}")
-    public ResponseEntity<List<Product>> getUserProducts(@PathVariable("userId") long userId){
-        return ResponseEntity.status(HttpStatus.OK).body(productService.getUserProduct(userId));
+    @GetMapping("/user/{id}")
+    public List<Product> getUserProducts(@PathVariable("id") long id){
+        return productService.getUserProducts(id);
     }
 
     @PostMapping

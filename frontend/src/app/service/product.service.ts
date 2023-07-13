@@ -11,13 +11,11 @@ export class ProductService {
 
   private productUrl: string;
   private productReturn: string;
-  private userProducts: string;
 
 
   constructor(private http: HttpClient) {
     this.productUrl = 'http://localhost:8090/api/products';
     this.productReturn = 'http://localhost:8090/api/products/';
-    this.userProducts = 'http://localhost:8090/api/products/user/'
   }
 
   findOne(id: number): Observable<Product> {
@@ -32,9 +30,5 @@ export class ProductService {
 
   public save(formdata: FormData) {
     return this.http.post<Product>(this.productUrl, formdata);
-  }
-
-  public findUserProducts(userId: number): Observable<Product[]> {
-    return this.http.get<Product[]>(this.userProducts + userId);
   }
 }

@@ -1,6 +1,8 @@
 package com.mdoroz.exTracker.controller;
 
+import com.mdoroz.exTracker.model.Product;
 import com.mdoroz.exTracker.model.User;
+import com.mdoroz.exTracker.service.ProductService;
 import com.mdoroz.exTracker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,10 +16,12 @@ import java.util.Optional;
 @RequestMapping("/users")
 public class UserController {
     private final UserService userService;
+    private final ProductService productService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, ProductService productService) {
         this.userService = userService;
+        this.productService = productService;
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
@@ -32,6 +36,18 @@ public class UserController {
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         Optional<User> user = userService.getUserById(id);
         return user.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping("/{userId}/products")
+    public ResponseEntity<Product> addProduct(@PathVariable Long userId, @RequestBody Product product) {
+        Optional<User> optionalUser = userService.getUserById(userId);
+        if (optionalUser.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        User user = optionalUser.get();
+        product.setUserId(user.getId());
+        Product savedProduct = productService.createProduct(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct);
     }
 
     @PostMapping("/register")

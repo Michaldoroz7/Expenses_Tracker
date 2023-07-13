@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -26,10 +27,6 @@ public class User {
     @OneToOne
     @JoinColumn(name = "accessType_id")
     private Role role;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
 
 
 }

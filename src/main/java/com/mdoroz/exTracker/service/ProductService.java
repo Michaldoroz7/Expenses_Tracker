@@ -2,12 +2,14 @@ package com.mdoroz.exTracker.service;
 
 
 import com.mdoroz.exTracker.model.Product;
-import com.mdoroz.exTracker.model.User;
 import com.mdoroz.exTracker.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -29,12 +31,16 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
+    public List<Product> getUserProducts(Long id) {
+        List<Product> products = productRepository.findAll();
+        List<Product> userProducts = new ArrayList<>();
 
-    public List<Product> getUserProduct(Long userId){
-
-        Optional<User> existingUser = userService.getUserById(userId);
-        List<Long> idList = List.of(existingUser.get().getProduct().getId());
-        return productRepository.findAllById(idList);
+        for (Product product : products) {
+            if (Objects.equals(product.getUserId(), id)) {
+                userProducts.add(product);
+            }
+        }
+        return userProducts;
     }
 
     public Product createProduct(Product product) {
